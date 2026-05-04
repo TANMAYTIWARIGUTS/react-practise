@@ -1,24 +1,31 @@
-
+import { useEffect, useState } from 'react';
 import './App.css';
 
-const App = () => {
+const Person = (props) =>{
+  return(
+    <>
+    <h1>Name: {props.name}</h1>
+    <h2>Age: {props.age}</h2>
+    </>
+  );
+}
 
-  const name='John';
-  const isNameShowing=false;
+const App = () => {
+  
+  const [counter, setCounter]=useState(0);
+
+  useEffect(()=>{
+    alert("hello maalik")
+
+  },[counter])
 
   return (
     <div className="App">
-      <h1>{isNameShowing?(
-        <>
-        hello
-        123
-        </>):(
-         <>
-        <p>check</p>
-          <p>check2</p>
-        </>
-          
-          )}, fetching info...</h1>
+      <>
+      <button onClick={() => setCounter((prevCount)=> prevCount - 1)}>-</button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount)=> prevCount + 1)}>+</button>
+      </>
     </div>
   );
 }
